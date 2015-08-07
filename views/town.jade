@@ -4,4 +4,35 @@ block content
   h1= title
   p Welcome to #{title}
 
+  table(border="1")
+    tr
+      th id
+      th ユーザー名
+      th ユーザーページURL
+      th 写真
+      th 投稿時間
+      th 投稿ページURL
+      th コメント
+      th 投稿元
+      th お気に入り数
+      th 街名
+      th 緯度
+      th 経度
+      th タグ
+    - each data in datas
+      tr
+        td= data.userid
+        td= data.username
+        td= data.userpage
+        td= data.photo
+        td= data.posttime
+        td= data.postpage
+        td= data.comment
+        td= data.postsource
+        td= data.like
+        td= data.townname
+        td= data.lnt
+        td= data.lng
+        td= data.tag
+
   a(href="/") Back to top
