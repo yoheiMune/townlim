@@ -5,7 +5,9 @@
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
+// 街用のルーティング
+var towns = require('./routes/towns');
+// var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
@@ -29,7 +31,10 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+// 街用
+app.get('/towns', towns.index);
+app.get('/towns/:town', towns.town);
+// app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
