@@ -5,27 +5,29 @@ block content
   p Welcome to #{title}
 
     - each data in datas
-      div
-        p
-          img(src="#{data.post_picture}", width="250px;")
-        p= data.post_comment
-        header
-          a(href="#{data.user_url}", target="_blank")
-            h1= data.user_name
-          p= data.user_fullname
-          img(src="#{data.user_picture}", width="100px;")
+      .mdl-card.mdl-shadow--2dp.demo-card-wide(style="margin-bottom:50px;")
+        .mdl-card__title(style="background: url('#{data.post_picture}'); background-size: cover; height: 300px;")
+          h2.mdl-card__title-text
+            a(href="#{data.user_url}", target="_blank")
+              img(src="#{data.user_picture}", style="width: 40px; height: 40px; margin-right: 10px;")
+              | #{data.user_name}
+        .mdl-card__supporting-text= data.post_comment
+        .mdl-card__actions.mdl-card--border
+          a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href="#{data.post_url}", target="_blank")= data.post_time
+        .mdl-card__menu
+          button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
+            i.material-icons share
 
-          
-        //- td= data.user_id
-        //- td= data.user_profile
-        //- td= data.user_liked_by
-        //- td= data.post_time
-        //- td= data.post_lat
-        //- td= data.post_lng
-        //- td= data.post_liked_by
-        //- td= data.post_category
-        //- td= data.post_town
-        //- td= data.post_reference
-        //- td= data.post_url
+        //- data.user_id
+        //- data.user_profile
+        //- data.user_liked_by
+        //- data.post_lat
+        //- data.post_lng
+        //- data.post_liked_by
+        //- data.post_category
+        //- data.post_town
+        //- data.post_reference
+        //- data.user_fullname
+
 
   a(href="/") Back to top
