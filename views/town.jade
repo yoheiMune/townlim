@@ -4,35 +4,28 @@ block content
   h1= title
   p Welcome to #{title}
 
-  table(border="1")
-    tr
-      th id
-      th ユーザー名
-      th ユーザーページURL
-      th 写真
-      th 投稿時間
-      th 投稿ページURL
-      th コメント
-      th 投稿元
-      th お気に入り数
-      th 街名
-      th 緯度
-      th 経度
-      th タグ
     - each data in datas
-      tr
-        td= data.userid
-        td= data.username
-        td= data.userpage
-        td= data.photo
-        td= data.posttime
-        td= data.postpage
-        td= data.comment
-        td= data.postsource
-        td= data.like
-        td= data.townname
-        td= data.lnt
-        td= data.lng
-        td= data.tag
+      div
+        p
+          img(src="#{data.post_picture}", width="250px;")
+        p= data.post_comment
+        header
+          a(href="#{data.user_url}", target="_blank")
+            h1= data.user_name
+          p= data.user_fullname
+          img(src="#{data.user_picture}", width="100px;")
+
+          
+        //- td= data.user_id
+        //- td= data.user_profile
+        //- td= data.user_liked_by
+        //- td= data.post_time
+        //- td= data.post_lat
+        //- td= data.post_lng
+        //- td= data.post_liked_by
+        //- td= data.post_category
+        //- td= data.post_town
+        //- td= data.post_reference
+        //- td= data.post_url
 
   a(href="/") Back to top
