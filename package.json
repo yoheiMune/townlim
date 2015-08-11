@@ -16,8 +16,14 @@
   },
   "homepage": "https://townlim.herokuapp.com/",
   "dependencies": {
+    "coffee-script": "^1.9.3",
     "express": "3.21.2",
+    "gulp": "^3.9.0",
+    "gulp-bower-files": "^0.2.7",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^3.0.0",
     "jade": "*",
+    "main-bower-files": "^2.9.0",
     "mongoose": "^4.1.1"
   }
 }

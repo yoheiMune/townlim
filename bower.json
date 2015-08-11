@@ -1,0 +1,19 @@
+{
+  "name": "townlim",
+  "version": "0.0.0",
+  "homepage": "https://github.com/taquaki-satwo/townlim",
+  "authors": [
+    "sato takaaki"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "material-design-lite": "~1.0.2"
+  }
+}
