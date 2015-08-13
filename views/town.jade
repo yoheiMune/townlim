@@ -1,6 +1,7 @@
 extends layout
 
 block content
+    //- ヘッダー
     .mdl-layout.mdl-js-layout.mdl-layout--overlay-drawer-button
       header.mdl-layout__header
         .mdl-layout-icon
@@ -16,7 +17,11 @@ block content
         span.mdl-layout-title Config
         nav.mdl-navigation
           a.mdl-navigation__link(href="/about") About
+
+      //- メインコンテンツ
       main.mdl-layout__content
+
+        //- コンテンツの生成
         - each data in datas
           .mdl-card.mdl-shadow--2dp.town-card-wide
             .mdl-card__title(style="background: url('#{data.post_picture}') center / cover;")
@@ -31,4 +36,7 @@ block content
               button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
                 i.material-icons share
 
+block scripts
+    script(src="/lib/lib.js")
+    script(src="/js/script.js")
 
