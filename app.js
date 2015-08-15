@@ -7,7 +7,6 @@ var express = require('express');
 // ルーティング設定
 var routes = require('./routes');
 var towns = require('./routes/towns');
-var index_post = require('./routes/index_post');
 // var user = require('./routes/user');
 
 // モジュールの読込み
@@ -21,7 +20,7 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// ミドルウェアに読込み
+// ミドルウェアの読込み
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -41,8 +40,6 @@ app.get('/', routes.index);
 app.get('/towns', towns.index);
 app.get('/towns/:town', towns.town);
 // app.get('/users', user.list);
-// Ajaxテスト
-app.post('/', index_post.index);
 
 
 // サーバーの起動

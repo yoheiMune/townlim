@@ -14,6 +14,7 @@ exports.town = function(req, res){
 
   res.render('town', {
     townName: townName,
-    datas: data
+    datas: data,
+    pretty: true
   });
 };
