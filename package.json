@@ -29,6 +29,7 @@
     "gulp-sass": "^2.0.4",
     "jade": "*",
     "main-bower-files": "^2.9.0",
+    "moment": "^2.10.6",
     "mongoose": "^4.1.2"
   }
 }
