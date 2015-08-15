@@ -15,31 +15,32 @@ block content
       a(href="/towns/yokohama") YOKOHAMA
 
 
-    //- Ajaxテスト
-    script.
-      function func() {
-        var form = new FormData(document.querySelector("#form1"));
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/', 'true');
-        xhr.responceType = 'json';
-        xhr.onload = function(e) {
-          if (this.status == 200) {
-            var result = this.response;
-            var msg = '<p>' + result.mail + '</p>'
-            document.querySelector('#msg').innerHTML = msg;
-          }
-        };
-        xhr.send(form);
-      }
+  //- Ajaxテスト
+  script.
+    function func() {
+      var form = new FormData(document.querySelector("#form1"));
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/', 'true');
+      xhr.responseType = 'json';
+      xhr.onload = function(e) {
+        if (this.status == 200) {
+          var result = this.response;
+          console.log(typeof(result));
+          var msg = '<p>' + result.mail + '</p>'
+          document.querySelector('#msg').innerHTML = msg;
+        }
+      };
+      xhr.send(form);
+    }
 
-    p#msg #{msg}
-    form#form1(method="post", action="javascript:return false;")
-      p name
-      p
-        input#name(type="text", name="name")
-      p
-        input(type="button", value='Ajax', onclick="func();")
+  p#msg #{msg}
+  form#form1(method="post", action="javascript:return false;")
+    p name
+    p
+      input#name(type="text", name="name")
+    p
+      input(type="button", value='Ajax', onclick="func();")
 
 
 block scripts
-    script(src="/lib/lib.js")
+  script(src="/lib/lib.js")
