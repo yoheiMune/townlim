@@ -6,7 +6,7 @@ block content
       header.mdl-layout__header
         .mdl-layout-icon
         .mdl-layout__header-row
-          span.mdl-layout-title Welcome to #{townName}
+          span.mdl-layout-title Welcome to #{townTitle}
       .mdl-layout__drawer
         span.mdl-layout-title Townlim
         nav.mdl-navigation
@@ -26,16 +26,12 @@ block content
           .mdl-card.mdl-shadow--2dp.town-card-wide
             .mdl-card__title(style="background: url('#{data.post_picture}') center / cover;")
               h2.mdl-card__title-text
-                a(href="#{data.user_url}", target="_blank")
+                //- a(href="#{data.user_url}", target="_blank")
                   img(src="#{data.user_picture}")
                   | #{data.user_name}
             .mdl-card__supporting-text= data.post_comment
             .mdl-card__actions.mdl-card--border
-              a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href="#{data.post_url}", target="_blank")= data.post_time
+              a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href="#{data.post_url}", target="_blank")= data.post_date
             .mdl-card__menu
               button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
                 i.material-icons share
-
-block scripts
-    script(src="/lib/lib.js")
-    script(src="/js/script.js")

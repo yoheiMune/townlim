@@ -1,20 +1,34 @@
-
-/*
- * GET town page.
+/**
+ * 街一覧ページ
  */
+var database = require('../models/database');
 
-exports.index = function(req, res){
+exports.index = function (req, res) {
   res.redirect('/');
 };
 
-exports.town = function(req, res){
-  var town = req.params.town;
-  var townName = town.toUpperCase();
-  var data = require('../models/' + town + '.json');
 
-  res.render('town', {
-    townName: townName,
-    datas: data,
-    pretty: true
+/**
+ * 街ごとのポスト一覧を取得
+ */
+exports.town = function (req, res) {
+
+  var townName  = req.params.town;
+  var townTitle = townName.toUpperCase();
+  var posts     = database.getPosts();
+
+  posts.getLatest(townName, 0, 10, function (err, datas) {
+    posts.close();
+    if (err) {
+      res.send(500);
+      return;
+    }
+    res.render('town', {
+      townTitle: townTitle,
+      datas: datas,
+      pretty: true
+    });
+    // res.json(200, datas);
+    return;
   });
 };

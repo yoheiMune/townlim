@@ -30,6 +30,7 @@
     "jade": "*",
     "main-bower-files": "^2.9.0",
     "moment": "^2.10.6",
+    "mongodb": "^2.0.41",
     "mongoose": "^4.1.2"
   }
 }

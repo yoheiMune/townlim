@@ -1,7 +1,7 @@
 /**
  * データベースの基本設定
  */
-var mongoose = require('mongoose');
+var mongodb = require('mongodb');
 var database = exports;
 
 
@@ -16,24 +16,53 @@ var Database = function () {};
 /**
  * データベースを開く
  */
-Database.prototype._open = function(database, callback){
+Database.prototype._open = function (database, callback) {
+  var self = this;
 
+  // 既存データベースオブジェクトの確認
+  if (this._db && !this._db.close) {
+    callback(null, this._db);
+    return;
+  }
+
+  // 接続設定
+  var server = new mongodb.Server('127.0.0.1', 27017, {});
+  var db_connector = new mongodb.Db(database, server, {safe: true});
+
+  // データベースを開く
+  db_connector.open(function (err, db) {
+    if (err) {
+      callback(err);
+      return;
+    }
+    self._db = db; // データベースオブジェクト
+    callback(null, db);
+  });
 };
 
 
 /**
  * データベースを閉じる
  */
-Database.prototype.close = function(){
-
+Database.prototype.close = function () {
+  if (this._db) {
+    this._db.close();
+    delete this._db;
+  }
 };
 
 
 /**
  * コレクションの取得
  */
-Database.prototype._getCollection = function(){
-
+Database.prototype._getCollection = function (collectionName, callback) {
+  this._open('townlim', function (err, db) {
+    if (err) {
+      callback(err);
+      return;
+    }
+    db.createCollection(collectionName, callback);
+  });
 };
 
 
@@ -51,15 +80,24 @@ Posts.prototype = new Database();
  * Postsクラスのインスタンス
  */
 database.getPosts = function () {
-
+  return new Posts();
 };
 
 
 /**
- * 一覧表示
+ * 町ごとの一覧表示
  */
-Posts.prototype.getLatest = function () {
-
+Posts.prototype.getLatest = function (townName, start, end, callback) {
+  // postsコレクションの取得
+  this._getCollection('posts', function (err, collection) {
+    if (err) {
+      callback(err);
+      return;
+    }
+    var cursor = collection.find({post_town: townName});
+    cursor.sort({post_date: -1}).limit(end - start).skip(start);
+    cursor.toArray(callback);
+  });
 };
 
 
@@ -122,7 +160,7 @@ Users.prototype.insert = function () {
 
 
 /**
- * ポストの削除
+ * ユーザーの削除
  */
 Users.prototype.destroy = function () {
 

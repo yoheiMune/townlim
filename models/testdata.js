@@ -60,6 +60,34 @@ var posts = [
     post_town: 'yokohama',
     post_reference: ['Townlim'],
     post_url: '/posts/3'
+  },
+  {
+    post_id: 4,
+    post_comment: 'ポスト5のコメント',
+    post_picture: 'https://pbs.twimg.com/media/CK_Oh9eUsAA9CBm.jpg:large',
+    post_date: new Date(2015, 8, 20, 9, 0, 0),
+    post_user_id: 0,
+    post_lat: 38.83514,
+    post_lng: 99.59865,
+    post_liked_by: [],
+    post_category: ['sale'],
+    post_town: 'shibuya',
+    post_reference: ['Townlim'],
+    post_url: '/posts/4'
+  },
+  {
+    post_id: 5,
+    post_comment: 'ポスト6のコメント',
+    post_picture: 'https://pbs.twimg.com/media/CK_Oh9eUsAA9CBm.jpg:large',
+    post_date: new Date(2015, 8, 30, 9, 0, 0),
+    post_user_id: 1,
+    post_lat: 38.83514,
+    post_lng: 99.59865,
+    post_liked_by: [0],
+    post_category: ['sale'],
+    post_town: 'shibuya',
+    post_reference: ['Townlim'],
+    post_url: '/posts/5'
   }
 ];
 
