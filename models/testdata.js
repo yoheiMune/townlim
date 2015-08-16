@@ -22,7 +22,7 @@ var posts = [
   {
     post_id: 1,
     post_comment: 'ポスト2のコメント',
-    post_picture: 'https://twitter.com/goto_yuuka/status/629298581925539840',
+    post_picture: 'https://pbs.twimg.com/media/CLu3rm6UwAAAN_N.jpg',
     post_date: new Date(2015, 8, 10, 10, 0, 0),
     post_user_id: 0,
     post_lat: 38.832,
