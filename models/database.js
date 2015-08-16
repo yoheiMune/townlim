@@ -26,8 +26,7 @@ Database.prototype._open = function (database, callback) {
   }
 
   // 接続設定
-  // var server = new mongodb.Server('127.0.0.1', 27017, {});
-  var server = new mongodb.Server('mongodb://heroku_35wzrs0m:equd19g5los28301uj34hvgm6e@ds031903.mongolab.com', '31903/heroku_35wzrs0m', {});
+  var server = new mongodb.Server('127.0.0.1', 27017, {});
   var db_connector = new mongodb.Db(database, server, {safe: true});
 
   // データベースを開く
