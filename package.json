@@ -27,10 +27,9 @@
     "gulp-jade": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.4",
+    "instagram-node-lib": "^0.1.1",
     "jade": "*",
     "main-bower-files": "^2.9.0",
-    "moment": "^2.10.6",
-    "mongodb": "^2.0.41",
-    "mongoose": "^4.1.2"
+    "mongodb": "^2.0.41"
   }
 }

@@ -4,6 +4,7 @@
 
 var express = require('express');
 
+var instagram = require('./models/instagram');
 
 // モジュールの読込み
 var http = require('http');
